@@ -37,10 +37,10 @@ spec:
             - name: API_PORT
               value: "80"
           envFrom:
-          - secretRef:
-            name: {{ .Values.config.secretName }}
           - configMapRef:
-            name: vx-api-env
+              name: vx-api-env
+          - secretRef:
+              name: {{ .Values.config.secretName }}
           ports:
             - name: http
               containerPort: 80
