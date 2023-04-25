@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vx-api-env
+  labels:
+    {{- include "qi-apps.labels" . | nindent 4 }}
+data:
+  content-indices.properties: |
+    BUCKET_NAME={{ .Values.vxApi.config.bucketName }}
+    FORGOT_PW_EMAIL_ADDRESS={{ .Values.vxApi.config.forgotPwEmailAddr }}
+    WEB_APP_DOMAIN_NAME={{ .Values.vxApi.config.webAppDomainName }}
