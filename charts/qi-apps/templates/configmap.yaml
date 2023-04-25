@@ -6,7 +6,6 @@ metadata:
   labels:
     {{- include "qi-apps.labels" . | nindent 4 }}
 data:
-  content-indices.properties: |
-    BUCKET_NAME={{ .Values.config.bucketName }}
-    FORGOT_PW_EMAIL_ADDRESS={{ .Values.config.forgotPwEmailAddr }}
-    WEB_APP_DOMAIN_NAME={{ .Values.config.webAppDomainName }}
+  BUCKET_NAME: {{ .Values.config.bucketName }}
+  FORGOT_PW_EMAIL_ADDRESS: {{ .Values.config.forgotPwEmailAddr }}
+  WEB_APP_DOMAIN_NAME: {{ .Values.config.webAppDomainName }}
