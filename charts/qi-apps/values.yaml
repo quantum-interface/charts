@@ -5,6 +5,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 vxApi:
+  name: "vx-api"
   replicaCount: 1
 
   image:
