@@ -30,6 +30,7 @@ A Helm chart for Kubernetes
 | vxApi.ingress.hosts[0].paths[0].path | string | `"/"` |  |
 | vxApi.ingress.hosts[0].paths[0].pathType | string | `"ImplementationSpecific"` |  |
 | vxApi.ingress.tls | list | `[]` |  |
+| vxApi.name | string | `"vx-api"` |  |
 | vxApi.nodeSelector | object | `{}` |  |
 | vxApi.podAnnotations | object | `{}` |  |
 | vxApi.podSecurityContext | object | `{}` |  |
