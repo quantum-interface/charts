@@ -1,0 +1,28 @@
+{{- if .Values.vxApi.autoscaling.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "qi-apps.vxApi.fullname" . }}
+  labels:
+    {{- include "qi-apps.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "qi-apps.vxApi.fullname" . }}
+  minReplicas: {{ .Values.vxApi.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.vxApi.autoscaling.maxReplicas }}
+  metrics:
+    {{- if .Values.vxApi.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.vxApi.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.vxApi.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.vxApi.autoscaling.targetMemoryUtilizationPercentage }}
+    {{- end }}
+{{- end }}

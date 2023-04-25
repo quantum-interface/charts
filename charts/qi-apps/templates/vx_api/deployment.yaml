@@ -1,38 +1,39 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "qi-apps.fullname" . }}
+  name: {{ include "qi-apps.vxApi.fullname" . }}
   labels:
     {{- include "qi-apps.labels" . | nindent 4 }}
+    {{- include "qi-apps.vxApi.selectorLabels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
+  {{- if not .Values.vxApi.autoscaling.enabled }}
+  replicas: {{ .Values.vxApi.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "qi-apps.selectorLabels" . | nindent 6 }}
+      {{- include "qi-apps.vxApi.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with .Values.vxApi.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "qi-apps.selectorLabels" . | nindent 8 }}
+        {{- include "qi-apps.vxApi.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- with .Values.vxApi.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "qi-apps.serviceAccountName" . }}
+      serviceAccountName: {{ include "qi-apps.vxApi.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.vxApi.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- toYaml .Values.vxApi.securityContext | nindent 12 }}
+          image: "{{ .Values.vxApi.image.repository }}:{{ .Values.vxApi.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.vxApi.image.pullPolicy }}
           env:
             - name: API_PORT
               value: "80"
@@ -40,7 +41,7 @@ spec:
           - configMapRef:
               name: vx-api-env
           - secretRef:
-              name: {{ .Values.config.secretName }}
+              name: {{ .Values.vxApi.config.secretName }}
           ports:
             - name: http
               containerPort: 80
@@ -54,16 +55,16 @@ spec:
               path: /
               port: http
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
+            {{- toYaml .Values.vxApi.resources | nindent 12 }}
+      {{- with .Values.vxApi.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- with .Values.vxApi.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.tolerations }}
+      {{- with .Values.vxApi.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}

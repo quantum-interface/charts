@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "qi-apps.vxApi.fullname" . }}
+  labels:
+    {{- include "qi-apps.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.vxApi.service.type }}
+  ports:
+    - port: {{ .Values.vxApi.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "qi-apps.vxApi.selectorLabels" . | nindent 4 }}
