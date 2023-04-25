@@ -3,6 +3,16 @@ entries:
   qi-apps:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-04-25T18:26:12.377458807Z"
+    description: A Helm chart for Kubernetes
+    digest: fe657a987b1579d5b2e24a72dd274d095a588f2c1ba8be0171226bb2ad17f947
+    name: qi-apps
+    type: application
+    urls:
+    - https://github.com/quantum-interface/charts/releases/download/qi-apps-0.1.4/qi-apps-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-04-25T16:59:26.855469064Z"
     description: A Helm chart for Kubernetes
     digest: 19a32b2d067cdac576fb0adab11a16868280836205b4fde079df451cf7bca053
@@ -31,4 +41,4 @@ entries:
     urls:
     - https://github.com/quantum-interface/charts/releases/download/qi-apps-0.1.1/qi-apps-0.1.1.tgz
     version: 0.1.1
-generated: "2023-04-25T16:59:26.855480364Z"
+generated: "2023-04-25T18:26:12.377473307Z"
