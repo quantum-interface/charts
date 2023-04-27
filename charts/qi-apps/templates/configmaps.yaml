@@ -6,7 +6,9 @@ metadata:
   labels:
     {{- include "qi-apps.labels" . | nindent 4 }}
 data:
-  content-indices.properties: |
-    BUCKET_NAME={{ .Values.vxApi.config.bucketName }}
-    FORGOT_PW_EMAIL_ADDRESS={{ .Values.vxApi.config.forgotPwEmailAddr }}
-    WEB_APP_DOMAIN_NAME={{ .Values.vxApi.config.webAppDomainName }}
+  BUCKET_NAME: "{{ .Values.vxApi.config.bucketName }}"
+  FORGOT_PW_EMAIL_ADDRESS: "{{ .Values.vxApi.config.forgotPwEmailAddr }}"
+  WEB_APP_DOMAIN_NAME: "{{ .Values.vxApi.config.webAppDomainName }}"
+  {{- if .Values.vxApi.config.disableLoggingColor }}
+  NO_COLOR: "{{ .Values.vxApi.config.disableLoggingColor }}"
+  {{- end }}

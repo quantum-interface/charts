@@ -20,6 +20,7 @@ vxApi:
     bucketName: ""
     forgotPwEmailAddr: ""
     webAppDomainName: ""
+    disableLoggingColor: ""
 
     # Existing secret with the following env set:
     # - MOTAR_HOST
