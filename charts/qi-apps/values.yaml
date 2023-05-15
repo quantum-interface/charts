@@ -18,6 +18,7 @@ vxApi:
 
   config:
     bucketName: ""
+    buildBucketName: ""
     forgotPwEmailAddr: ""
     webAppDomainName: ""
     disableLoggingColor: ""
