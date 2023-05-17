@@ -5,6 +5,10 @@ metadata:
   labels:
     {{- include "qi-apps.labels" . | nindent 4 }}
     {{- include "qi-apps.vxApi.selectorLabels" . | nindent 4 }}
+  {{- with .Values.vxApi.deployment.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   {{- if not .Values.vxApi.autoscaling.enabled }}
   replicas: {{ .Values.vxApi.replicaCount }}

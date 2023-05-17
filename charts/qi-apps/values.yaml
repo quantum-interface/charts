@@ -27,6 +27,9 @@ vxApi:
   secretName: "vx-api-secret-env"
   extraEnv: []
 
+  deployment:
+    annotations: {}
+
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
