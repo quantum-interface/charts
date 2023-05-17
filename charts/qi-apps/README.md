@@ -1,6 +1,6 @@
 # qi-apps
 
-![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.3.0](https://img.shields.io/badge/Version-0.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -15,10 +15,7 @@ A Helm chart for Kubernetes
 | vxApi.autoscaling.maxReplicas | int | `100` |  |
 | vxApi.autoscaling.minReplicas | int | `1` |  |
 | vxApi.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
-| vxApi.config.bucketName | string | `""` |  |
-| vxApi.config.forgotPwEmailAddr | string | `""` |  |
-| vxApi.config.secretName | string | `"vx-api-secret-env"` |  |
-| vxApi.config.webAppDomainName | string | `""` |  |
+| vxApi.extraEnv | list | `[]` |  |
 | vxApi.image.pullPolicy | string | `"IfNotPresent"` |  |
 | vxApi.image.repository | string | `"nginx"` |  |
 | vxApi.image.tag | string | `""` |  |
@@ -36,6 +33,7 @@ A Helm chart for Kubernetes
 | vxApi.podSecurityContext | object | `{}` |  |
 | vxApi.replicaCount | int | `1` |  |
 | vxApi.resources | object | `{}` |  |
+| vxApi.secretName | string | `"vx-api-secret-env"` |  |
 | vxApi.securityContext | object | `{}` |  |
 | vxApi.service.port | int | `80` |  |
 | vxApi.service.type | string | `"ClusterIP"` |  |

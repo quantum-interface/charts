@@ -37,11 +37,12 @@ spec:
           env:
             - name: API_PORT
               value: "80"
+            {{- with .Values.vxApi.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
           envFrom:
-          - configMapRef:
-              name: vx-api-env
           - secretRef:
-              name: {{ .Values.vxApi.config.secretName }}
+              name: {{ .Values.vxApi.secretName }}
           ports:
             - name: http
               containerPort: 80

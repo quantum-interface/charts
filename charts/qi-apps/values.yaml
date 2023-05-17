@@ -16,22 +16,16 @@ vxApi:
 
   imagePullSecrets: []
 
-  config:
-    bucketName: ""
-    buildBucketName: ""
-    forgotPwEmailAddr: ""
-    webAppDomainName: ""
-    disableLoggingColor: ""
-
-    # Existing secret with the following env set:
-    # - MOTAR_HOST
-    # - MOTAR_CLIENT_ID
-    # - MOTAR_CLIENT_SECRET
-    # - PG_HOST
-    # - PG_DATABASE
-    # - PG_USERNAME
-    # - PG_PASSWORD
-    secretName: "vx-api-secret-env"
+  # Existing secret with the following env set:
+  # - MOTAR_HOST
+  # - MOTAR_CLIENT_ID
+  # - MOTAR_CLIENT_SECRET
+  # - PG_HOST
+  # - PG_DATABASE
+  # - PG_USERNAME
+  # - PG_PASSWORD
+  secretName: "vx-api-secret-env"
+  extraEnv: []
 
   serviceAccount:
     # Specifies whether a service account should be created
