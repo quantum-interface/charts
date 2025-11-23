@@ -96,3 +96,11 @@ vxApi:
   tolerations: []
 
   affinity: {}
+
+secrets:
+  pullSecrets:
+    github:
+      auth: null
+  vxapi:
+    enabled: false
+    entries: []
